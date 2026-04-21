@@ -1,10 +1,14 @@
 CXX = g++
-CXXFLAGS = -O3 -std=c++11 -pthread -march=native
+CXXFLAGS = -O3
+LDFLAGS = -lz -lpthread
 
-all: ovfilter_cpp
+TARGET = ovfilter
+SRC = ovfilter.cpp
 
-ovfilter_cpp: ovfilter.cpp
-	$(CXX) $(CXXFLAGS) -o $@ $< -lz
+all: $(TARGET)
+
+$(TARGET): $(SRC)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC) $(LDFLAGS)
 
 clean:
-	rm -f ovfilter_cpp
+	rm -f $(TARGET)

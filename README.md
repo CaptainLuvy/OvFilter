@@ -4,14 +4,12 @@ OvFilter is an overlap filtering tool specifically designed for long-read (HiFi 
 
 ## Installation
 
-OvFilter is written in C++ and requires `zlib`. To compile the program from source, simply clone the repository and run `make`, or compile it manually using `g++`:
+OvFilter is written in C++ and requires `zlib`. To compile the program from source, simply clone the repository and run `make`:
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/OvFilter.git
 cd OvFilter
-
-# Compile using g++
-g++ -O3 -o ovfilter ovfilter.cpp -lz -lpthread
+make
 ```
 
 ## Quick Start
