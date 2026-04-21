@@ -38,11 +38,11 @@ make
 
 ---
 
-## Pre-requisite: How to Extract Unikmers
+## How to Extract Unikmers
 
 OvFilter requires a pre-extracted list of unikmers (`--unikmers`). The extraction method depends on whether you are running an All-vs-All (AVA) assembly or a Read-to-Reference (MAP) evaluation.
 
-### Scenario 1: AVA Mode (All-vs-All Assembly)
+### 1: AVA Mode (All-vs-All Assembly)
 
 In AVA mode, reads have sequencing depth (e.g., 30X), and the true biological k-mer frequencies form a normal distribution. We need to extract k-mers within this distribution window.
 
@@ -55,7 +55,7 @@ Use the provided helper scripts in the root directory for automated extraction:
    ```
    *The script will automatically count k-mers, calculate the distribution window, generate a visualization Excel file, and export the final `unikmers.kmers` list.*
 
-### Scenario 2: MAP Mode (Read-to-Reference)
+### 2: MAP Mode (Read-to-Reference)
 
 When mapping reads to a reference, the reference depth is effectively 1. We simply need to extract unique k-mers from the reference genome.
 
