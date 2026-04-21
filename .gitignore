@@ -1,0 +1,48 @@
+# Compiled object files
+*.o
+*.obj
+
+# Executables
+ovfilter
+ovfilter.exe
+ovfilter_cpp
+
+# Temporary files and backup files
+*.bak
+*.bak_*
+*.tmp
+*~
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+env.bak/
+venv.bak/
+
+# Project specific data files (Logs, PAF, FASTA, JF, etc)
+*.paf
+*.fasta
+*.fa
+*.fastq
+*.fq
+*.jf
+*.histo
+*.kmers
+*.xlsx
+*.stats.txt
+*.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
