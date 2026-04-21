@@ -7,12 +7,14 @@
 # conda install -c conda-forge xlsxwriter
 
 # ------- SPECIFICATION
-READ_FILE="/homeb/dingyc/fsa/hifi/chm13/UCDasm/chrX/repeat_data/chrX.fasta"
+READ_FILE="reads.fasta"  # REPLACE THIS with the path to your input reads file
 k=21
-OUT_COUNT="/homeb/dingyc/fsa/hifi/chm13/UCDasm/chrX/unikmer/k21_count.jf"
-OUT_HISTO="/homeb/dingyc/fsa/hifi/chm13/UCDasm/chrX/unikmer/k21_counts.histo"
-OUT_XCEL="/homeb/dingyc/fsa/hifi/chm13/UCDasm/chrX/unikmer/k21_distribution.xlsx"
-UNIKMERS="/homeb/dingyc/fsa/hifi/chm13/UCDasm/chrX/unikmer/k21_unikmers.kmers"
+
+# Output files will be generated in the current directory
+OUT_COUNT="k${k}_count.jf"
+OUT_HISTO="k${k}_counts.histo"
+OUT_XCEL="k${k}_distribution.xlsx"
+UNIKMERS="k${k}_unikmers.kmers"
 
 # the count and histo commands together generate the frequency distribution of kmers
 # in the $OUT_HISTO file 
