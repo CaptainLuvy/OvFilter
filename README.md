@@ -2,6 +2,18 @@
 
 OvFilter is an overlap filtering tool specifically designed for long-read (HiFi / ONT) sequencing data. It effectively removes false-positive overlaps while maximizing the retention of true biological alignments by combining **low-frequency k-mer based collinearity checks** with a **Repeat Penalty Score (RPS) rescue mechanism**.
 
+## Installation
+
+OvFilter is written in C++ and requires `zlib`. To compile the program from source, simply clone the repository and run `make`, or compile it manually using `g++`:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/OvFilter.git
+cd OvFilter
+
+# Compile using g++
+g++ -O3 -o ovfilter ovfilter.cpp -lz -lpthread
+```
+
 ## Quick Start
 
 ```bash
