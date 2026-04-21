@@ -1,9 +1,0 @@
-conda activate pbsim2
-
-pbsim --depth 30 --sample-fastq /homeb/dingyc/fsa/hifi/chm13/ovfilter/scripts/sim_exp/sample_data/sample_profile_hifi.fastq --prefix chr1_hifi /homeb/dingyc/fsa/hifi/chm13/ovfilter/scripts/sim_exp/censat_ref_data/chr1_cen_wide.fasta
-
-pbsim --depth 30 --sample-fastq /homeb/dingyc/fsa/hifi/chm13/ovfilter/scripts/sim_exp/sample_data/sample_profile_hifi.fastq --prefix chr8_hifi /homeb/dingyc/fsa/hifi/chm13/ovfilter/scripts/sim_exp/censat_ref_data/chr8_cen_wide.fasta
-
-pbsim --depth 30 --sample-fastq /homeb/dingyc/fsa/hifi/chm13/ovfilter/scripts/sim_exp/sample_data/sample_profile_ont.fastq --prefix chr1_ont /homeb/dingyc/fsa/hifi/chm13/ovfilter/scripts/sim_exp/censat_ref_data/chr1_cen_wide.fasta
-
-pbsim --depth 30 --sample-fastq /homeb/dingyc/fsa/hifi/chm13/ovfilter/scripts/sim_exp/sample_data/sample_profile_ont.fastq --prefix chr8_ont /homeb/dingyc/fsa/hifi/chm13/ovfilter/scripts/sim_exp/censat_ref_data/chr8_cen_wide.fasta

@@ -52,6 +52,7 @@ compile.sh
 ovfilter.py
 ovfilter_pure.py
 run_ovfilter_benchmark.sh
+scripts/
 *.md
 !README.md
 
