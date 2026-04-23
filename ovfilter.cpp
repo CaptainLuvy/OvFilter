@@ -530,7 +530,7 @@ int main(int argc, char* argv[]) {
     // Parse args manually for simplicity
     string paf_file, unikmers_file, reads_file, output_file, output_numeric_file;
     string read_type = "hifi";
-    int k = 21, min_shared = 15, tolerance = 15, min_align_len = 0, overhang_tolerance = 1000;
+    int k = 21, min_shared = 1, tolerance = 15, min_align_len = 0, overhang_tolerance = 1000;
     double min_identity = 0.0, max_sd = 10.0, rps_threshold = 0.08;
     bool min_shared_explicit = false;
     bool min_identity_explicit = false;
@@ -591,7 +591,7 @@ int main(int argc, char* argv[]) {
         if (min_shared_explicit) {
             min_shared_source = "explicit_argument";
         } else {
-            min_shared = 15;
+            min_shared = 1;
             min_shared_source = "default_hifi";
         }
     }
