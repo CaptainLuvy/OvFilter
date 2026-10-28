@@ -538,7 +538,7 @@ int main(int argc, char* argv[]) {
     string min_shared_source = "default_hifi";
     double configured_min_identity = min_identity;
     string min_identity_source = "default_hifi";
-    bool keep_contained = true, ignore_overhang = true, numeric_only = false;
+    bool keep_contained = true, ignore_overhang_check = false, numeric_only = false;
     int threads = 1;
 
     for (int i = 1; i < argc; ++i) {
@@ -558,7 +558,7 @@ int main(int argc, char* argv[]) {
         else if (arg == "--read-type" || arg == "--mode") read_type = argv[++i];
         else if (arg == "--threads" || arg == "-T") threads = stoi(argv[++i]);
         else if (arg == "--drop-contained") keep_contained = false;
-        else if (arg == "--keep-overhang") ignore_overhang = false;
+        else if (arg == "--keep-overhang") ignore_overhang_check = true;
         else if (arg == "--numeric-only") numeric_only = true;
         else if (arg == "-R" || arg == "--rps-threshold") rps_threshold = stod(argv[++i]);
     }
@@ -729,7 +729,7 @@ int main(int argc, char* argv[]) {
                 if (is_contained) reason = "Contained";
             }
             
-            if (reason.empty() && !ignore_overhang) {
+            if (reason.empty() && !ignore_overhang_check) {
                 if (!check_overhang(q_len, q_start, q_end, t_len, t_start, t_end, strand, overhang_tolerance)) {
                     reason = "Overhang";
                 }
