@@ -6,9 +6,22 @@
 # conda install -c bioconda jellyfish
 # conda install -c conda-forge xlsxwriter
 
-# ------- SPECIFICATION
-READ_FILE="reads.fasta"  # REPLACE THIS with the path to your input reads file
-k=21
+# Default values
+DEFAULT_READ_FILE="reads.fasta"
+DEFAULT_K=21
+
+# Get parameters
+READ_FILE="${1:-$DEFAULT_READ_FILE}"
+k="${2:-$DEFAULT_K}"
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+
+# Print parameters
+echo "========================================"
+echo " Input Reads File : $READ_FILE"
+echo " K-mer Size (k)   : $k"
+echo "========================================"
 
 # Output files will be generated in the current directory
 OUT_COUNT="k${k}_count.jf"
@@ -26,7 +39,7 @@ jellyfish histo -o $OUT_HISTO -v $OUT_COUNT
 # containing the expected unikmers
 # the python script also outputs the calculated mean, sd, lower bound and upper bound
 # values from the input distribution file
-OUTPUT=$(python3 ./freq_distribution_kmers.py $OUT_HISTO $OUT_XCEL)
+OUTPUT=$(python3 "$SCRIPT_DIR/freq_distribution_kmers.py" $OUT_HISTO $OUT_XCEL)
 
 echo $OUTPUT
 

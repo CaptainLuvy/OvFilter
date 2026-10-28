@@ -31,7 +31,7 @@ make
 
 ### Optional Parameters
 - `-k`: k-mer length (Default: 21).
-- `-s` / `--min-shared`: Minimum shared unikmer count (Default: HiFi 15, ONT 6).
+- `-s` / `--min-shared`: Minimum shared unikmer count (Default: HiFi 1, ONT 6).
 - `-i` / `--min-identity`: Minimum identity threshold.
 - `-R` / `--rps-threshold`: RPS rescue threshold (Default: 0.08).
 - `--keep-overhang`: Enable strict overhang filtering (Default: disabled, does not drop overlaps due to overhangs).
@@ -44,14 +44,13 @@ OvFilter requires a pre-extracted list of unikmers (`--unikmers`). The extractio
 
 ### 1: AVA Mode (All-vs-All Assembly)
 
-In AVA mode, reads have sequencing depth (e.g., 30X), and the true biological k-mer frequencies form a normal distribution. We need to extract k-mers within this distribution window.
+In AVA mode (read-to-read overlap detection), there is no reference genome to define "strict unique k-mers". Instead, we rely on the sequencing depth (e.g., 30X), where true biological k-mers from single-copy regions form a specific frequency distribution. The purpose of this step is to extract frequency-selected informative k-mers within this distribution window to serve as high-confidence anchors for overlap verification.
 
 Use the provided helper scripts in the root directory for automated extraction:
 1. **Install dependencies**: `conda install -c bioconda jellyfish -c conda-forge xlsxwriter`
-2. **Configure**: Open `extractUnikmers.sh` and change the `READ_FILE` variable to your input reads path.
-3. **Run**:
+2. **Run the extraction script:**:
    ```bash
-   bash extractUnikmers.sh
+   bash extractUnikmers.sh <reads.fa>
    ```
    *The script will automatically count k-mers, calculate the distribution window, generate a visualization Excel file, and export the final `unikmers.kmers` list.*
 
